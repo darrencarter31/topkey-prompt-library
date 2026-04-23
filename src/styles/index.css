@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/* ─── FoundersGrotesk ──────────────────────────────────────────────────────── */
+@font-face {
+  font-family: Foundersgrotesk;
+  src: url("https://cdn.prod.website-files.com/68cd99e1724b0c58263e72a1/68cd9a2cd23d4d5b68aaa9f0_FoundersGrotesk-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: Foundersgrotesk;
+  src: url("https://cdn.prod.website-files.com/68cd99e1724b0c58263e72a1/68cd9a2cbcfa8779bbd0be6e_FoundersGrotesk-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@theme {
+  /* Topkey website brand palette */
+  --color-navy:        #11163d;
+  --color-navy-text:   #11163da3;   /* 64% — body text */
+  --color-navy-border: #11163d1a;   /* 10% — borders */
+  --color-navy-subtle: #11163d08;   /* 3%  — subtle bg */
+
+  --color-neon:        #e1fb45;     /* primary CTA */
+  --color-neon-hover:  #cce444;
+
+  --color-orange:      #f27d4b;     /* secondary accent */
+
+  --color-ice:         #c1eae7;
+  --color-ice-soft:    #c1eae74d;
+  --color-mint:        #e0f3f3;
+  --color-cream:       #f4f8f5;
+
+  --color-teal:        #329e96;
+
+  /* Font */
+  --font-sans: Foundersgrotesk, Arial, sans-serif;
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+body {
+  font-family: Foundersgrotesk, Arial, sans-serif;
+  color: #11163da3;
+  background: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #11163d;
+  font-weight: 500;
+  font-family: Foundersgrotesk, Arial, sans-serif;
+}
+
+/* ─── Layout — matches topkey.io Webflow two-level pattern ──────────────────── */
+/* Outer: padding-global (5% each side, like Webflow navbar + section wrapper)   */
+/* Inner: container-large (max-width 80rem centered, like Webflow content div)   */
+.tk-global {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.tk-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Navbar — from topkey.io Webflow (navbar2_* classes) ───────────────────── */
+.navbar2_component {
+  z-index: 50;
+  border-bottom: 1px solid #11163d1a;
+  background-color: #fff;
+  align-items: center;
+  width: 100%;
+  min-height: 4.5rem;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.navbar2_container {
+  grid-column-gap: 16px;
+  grid-template-columns: .375fr 1fr .375fr;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: grid;
+}
+
+.navbar2_logo { width: 88px; transition: all .2s; }
+.navbar2_logo:hover { transform: scale(1.1); }
+
+.navbar2_menu {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.navbar2_link {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  color: #11163da3;
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: Foundersgrotesk, Arial, sans-serif;
+  text-decoration: none;
+  transition: all .2s;
+}
+.navbar2_link:hover { color: #11163d; }
+
+.navbar2_dropdwn-toggle {
+  gap: 4px;
+  border-radius: 12px;
+  align-items: center;
+  padding: 4px 8px;
+  display: flex;
+  color: #11163da3;
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: Foundersgrotesk, Arial, sans-serif;
+  text-decoration: none;
+  transition: all .2s;
+  cursor: pointer;
+}
+.navbar2_dropdwn-toggle:hover { color: #11163d; background-color: #11163d08; }
+
+.dropdown-title { padding-top: 4px; }
+.dropdown-chevron {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.navbar2_button-wrapper {
+  gap: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* ─── Button system — from topkey-web/components/ui/Button.tsx ──────────────── */
+/* Asymmetric top/bottom padding compensates for FoundersGrotesk's high baseline */
+.tk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-family: Foundersgrotesk, Arial, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 13px 20px 8px;
+}
+
+.tk-btn-sm {
+  padding: 8px 14px 6px;
+  font-size: 0.875rem;
+}
+
+.tk-btn-xs {
+  padding: 6px 12px 4px;
+  font-size: 0.75rem;
+}
+
+.tk-btn-primary {
+  background: #e1fb45;
+  color: #11163d;
+}
+.tk-btn-primary:hover { background: #cce444; }
+
+.tk-btn-secondary {
+  background: transparent;
+  border: 1px solid #11163d;
+  color: #11163d;
+}
+.tk-btn-secondary:hover { background: #11163d08; }
+
+.tk-btn-ghost {
+  background: #11163d08;
+  border: 1px solid #11163d1a;
+  color: #11163da3;
+}
+.tk-btn-ghost:hover { background: #11163d14; }
